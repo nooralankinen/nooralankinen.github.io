@@ -1,0 +1,32 @@
+
+.c-item {
+
+    height: 500px;
+}
+
+.c-img {
+
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(80%);
+}
+
+.a-item {
+    background-color:#b1c9b9;
+}
+
+.accordion-button {
+    background-color:#b1c9b9;
+}
+
+
+   .footer {
+    height: 100px;
+    background-color: #b1c9b9;
+   }
+
+   h1 {
+        color: white;
+        text-shadow: 4px 4px 10px #000000;
+      }
+   
