@@ -1,11 +1,8 @@
 {
 "nimi": "Digitekniikat",
 "osallistujat": "5 kpl",
-"nimet": [
-        {"Simo", "Timo", "Tomi", "Rami", "Sami"}
-], 
+"nimet": ["Simo", "Timo", "Tomi", "Rami", "Sami"], 
 "aika": "13.1-14.3.2025",
 "kesto": "8 viikkoa",
 "kuva": "laptop-2562361_1280.JPG"
-
 }
