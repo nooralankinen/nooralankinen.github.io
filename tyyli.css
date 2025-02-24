@@ -1,5 +1,7 @@
 header {
     justify-content: center;
+    display: flex;
+    
 }
 
 p {
