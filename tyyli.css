@@ -1,4 +1,6 @@
 body {
+    justify-content: flex-start;
+    padding: 5px;
     display: flex;
     align-items: center;
     
