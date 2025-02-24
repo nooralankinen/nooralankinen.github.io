@@ -17,33 +17,36 @@
     <h1>Toteutus</h1>
     <div id="vastaus">
         <script>
-            fetch('https://nooralankinen.github.io/kurssi.JSON')
 
-            // funktio
+            /*funktio*/
             function kerro(data){
                 var teksti = "";
                 teksti = "<h1>" + data.otsikko + "</h1>";
-                teksti = teksti +"<p>"+"<b>"+"Yhteysteidot" +"</b>"+"<br>"
-                + data.yhteystiedot.puhelin + "<br>"
-                + data.yhteystiedot.email + "</p>";
+                teksti = teksti +"<p>"+"<b>"+ data.kuvaus +"</b>"+"<br>"
+                teksti += '<img src="' + data.kuva + '" alt="Kuva" width="300"><br>';
+                 + data.opintojakso.nimi + "<br>"
+                 + data.opintojakso.tunnus + "<br>"
+                 + data.opintojakso.opintopisteet + "<br>"
+                 + data.sisalto + "<br>"
+                 + data.tekniikat + "</p>";
 
             document.getElementById("vastaus").innerHTML = teksti;
             
             }
-               
-            // Muunnetaan vastaus JSON -muotoon
+          fetch('https://nooralankinen.github.io/kurssi.JSON')      
+            /*Muunnetaan vastaus JSON -muotoon*/
                 .then(function(response) {
                     return response.json();
                     })
 
-            // Käsitellään muunnettu vastaus
-            // Kutsutaan funktiota kerro() ja välitetään sille json -vastaus
+            /* Käsitellään muunnettu vastaus
+             Kutsutaan funktiota kerro() ja välitetään sille json -vastaus */
                 .then(function (responseJson) {
                     kerro(responseJson);
                     })
 
 
-            // Jos tuli virhe
+            /* Jos tuli virhe */
                 .catch(function (error) {
                     document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
                     })
