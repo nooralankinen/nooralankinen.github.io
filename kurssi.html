@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="fi">
+
+<head>
+ <title>JSON Example</title> 
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+
+<body>
+    <h1>JSON testisivu</h1>
+    <div id="vastaus">
+        <script>
+            fetch('https://nooralankinen.github.io/tietoja.JSON')
+
+            // funktio
+            function kerro(data){
+
+                var teksti = "";
+                document.getElementById("vastaus").innerHTML = teksti;
+            }
+            
+            // Muunnetaan vastaus JSON -muotoon
+                .then(function(response) {
+                    return response.json();
+                    })
+
+            // Käsitellään muunnettu vastaus
+            // Kutsutaan funktiota kerro() ja välitetään sille json -vastaus
+                .then(function (responseJson) {
+                    kerro(responseJson);
+                    })
+
+
+            // Jos tuli virhe
+                .catch(function (error) {
+                    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+                    })
+
+        </script>
+    </div>
+
+</body>
+
+
+            
