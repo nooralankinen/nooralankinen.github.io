@@ -22,15 +22,21 @@
             function kerro(data){
                 var teksti = "";
                 teksti = "<h1>" + data.otsikko + "</h1>";
-                teksti = teksti +"<p>"+"<b>"+ data.kuvaus +"</b>"+"<br>"
-                teksti += '<img src="https://jaakkola.github.io/json/digi.JPG"' + data.kuva + '" alt="Kuva" width="300"><br>';
-                 + data.opintojakso.nimi + "<br>"
-                 + data.opintojakso.tunnus + "<br>"
-                 + data.opintojakso.opintopisteet + "<br>"
-                 + data.sisalto + "<br>"
-                 + data.tekniikat + "</p>";
+                teksti = teksti +"<p>"+"<b>"+ data.kuvaus +"</b>"+"<br>";
+                teksti += '<img src="' + data.kuva + '" alt="Kuva" width="300"><br>';
+                 + data.opintojakso.nimi + "<br>";
+                 + data.opintojakso.tunnus + "<br>";
+                 + data.opintojakso.opintopisteet + "<br>";
+                 teksti += "<b>Sisältö:</b><br>";
+                teksti += data.sisalto.join("<br>") + "<br>";
 
-            document.getElementById("vastaus").innerHTML = teksti;
+                teksti += "<b>Tekniikat:</b><br>";
+                data.tekniikat.forEach(function(tekniikka) {
+                    teksti += '<a href="' + tekniikka.linkki + '" target="_blank">' + tekniikka.aihe + '</a><br>';
+                });
+
+                teksti += "</p>";
+
             
             }
           fetch('https://nooralankinen.github.io/kurssi.JSON')      
