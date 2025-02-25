@@ -1,3 +1,5 @@
+console.log("saa.js ladattu!");
+
 // opettajan API-avain
 const apiKey = "665ecd56dfc08dbb50feb8b8f5034e28";
 
