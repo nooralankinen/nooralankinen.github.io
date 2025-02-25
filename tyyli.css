@@ -8,8 +8,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
 }
 
 /* Navigointivalikko */
@@ -19,11 +17,8 @@ ul {
     padding: 10px;
     background-color: lightgray;
     display: flex;
-    justify-content: flex-start; /* Valikko vasemmalle */
+    align-items: center;
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 /* Valikon linkit */
@@ -45,5 +40,5 @@ ul li a:hover {
 #vastaus {
     text-align: center;
     max-width: 800px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
