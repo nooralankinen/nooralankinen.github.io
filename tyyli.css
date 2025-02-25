@@ -10,6 +10,11 @@ body {
     align-content: center;
 }
 
+h1 {
+    align-content: center;
+}
+
+
 /* Navigointivalikko */
 ul {
     list-style-type: none;
