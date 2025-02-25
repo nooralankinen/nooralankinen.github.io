@@ -27,8 +27,7 @@ function fetchSaa(kaupunki) {
 
 // Jos tuli jokin virhe
 
-.catch(function (error) { 
-    document.getElementById(kaupunki.toLowerCase()).innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
+        .catch(function (error) { 
+            document.getElementById(kaupunki.toLowerCase()).innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
 
-});
-}
+        });
