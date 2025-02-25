@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="fi">
+
+<head>
+    <title>JSON Example</title> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="tyyli.css">
+    <ul>
+        <li><a href="kurssi.html">Home</a></li>
+        <li><a href="toteutus.html">Toteutus</a></li>
+        <li><a href="saa.html">Sää</a></li>
+        <li><a href="tapahtumat.html">Tapahtumat</a></li>
+    </ul>
+</head>
+
+<body>
+    <h1>Tapahtumat Tampereella</h1>
+    <div id="vastaus">
+        <script>
+            /* funktio */
+            function kerro(data) {
+                teksti = "<h1>" + data.nimi + "</h1>";
+                teksti = teksti + "<p>" + data.osallistujat + "<br>"
+                    + data.nimet + "<br>"
+                    + data.aika + "<br>"
+                    + data.kesto + "<br>" + "</p>";
+                teksti += '<img src="' + data.kuva + '" alt="Kuva" width="300"><br>';
+
+                document.getElementById("vastaus").innerHTML = teksti;
+            }
+
+            /* Sivu, josta tieto haetaan */
+            fetch('https://nooralankinen.github.io/kurssi.JSON')
+
+                /* Muunnetaan vastaus JSON -muotoon */
+                .then(function (response) {
+                    return response.json();
+                })
+
+                /* Käsitellään muunnettu vastaus
+                 Kutsutaan funktiota kerro() ja välitetään sille json -vastaus */
+                .then(function (responseJson) {
+                    kerro(responseJson);
+                })
+
+                /* Jos tuli virhe */
+                .catch(function (error) {
+                    document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+                })
+        </script>
+    </div>
+</body>
+
+</html>
