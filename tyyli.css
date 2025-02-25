@@ -9,6 +9,10 @@ body {
     flex-direction: column;
 }
 
+h1{
+    justify-content: center;
+}
+
 /* Navigointivalikko */
 ul {
     list-style-type: none;
