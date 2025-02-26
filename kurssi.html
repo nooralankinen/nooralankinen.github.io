@@ -20,12 +20,12 @@
         <script>
             /* funktio */
             function kerro(data) {
-                teksti = "<h1>" + data.nimi + "</h1>" + "<br>";
-                teksti =  "<br>" + teksti + "<p>" + data.osallistujat + "<br>"
-                    "<br>" + data.nimet + "<br>"
-                    "<br>" + data.aika + "<br>"
-                    "<br>" + data.kesto + "<br>" + "</p>";
-                teksti += "<br>" + '<img src="' + data.kuva + '" alt="Kuva" width="300"><br>';
+                teksti = "<h1>" + data.nimi + "</h1>";
+                teksti = teksti + "<p>" + data.osallistujat + "<br>"
+                    + data.nimet + "<br>"
+                    + data.aika + "<br>"
+                    + data.kesto + "<br>" + "</p>";
+                teksti +='<img src="' + data.kuva + '" alt="Kuva" width="300"><br>';
 
                 document.getElementById("vastaus").innerHTML = teksti;
             }
