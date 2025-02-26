@@ -11,11 +11,6 @@ fetch(`https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data`)
     kuvat(data);
 })
 
-/* Jos tuli jokin virhe */
-.catch(function(error) { 
-    document.getElementById("kamerat").innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
-});
-
 /*Näytetään yhden kameran kuva */
 function kuvat(data) {
     // Varmistetaan, että data.presets ei ole tyhjä
