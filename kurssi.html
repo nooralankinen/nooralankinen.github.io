@@ -23,10 +23,10 @@
             /* funktio */
             function kerro(data) {
                 teksti = "<h1>" + data.nimi + "</h1>";
-                teksti = teksti + "Osallistujien lukumäärä:" "<p>" + data.osallistujat + "<br>"
-                   "Osallistujat:" + data.nimet + "<br>"
-                    "Aika:" + data.aika + "<br>"
-                    "Kesto yhteensä (vkoa):" + data.kesto + "<br>" + "</p><br>";
+                teksti = teksti + "<p>" + data.osallistujat + "<br>"
+                    + data.nimet + "<br>"
+                    + data.aika + "<br>"
+                    + data.kesto + "<br>" + "</p><br>";
                 teksti +='<img src="' + data.kuva + '" alt="Kuva" width="300"><br>';
 
                 document.getElementById("vastaus").innerHTML = teksti;
