@@ -21,12 +21,13 @@
             /* funktio */
             function kerro(data) {
                 var teksti = "";
-                teksti += "<h1>" + data.otsikko + "</h1>";
-                teksti += "<p><b>" + data.kuvaus + "</b><br>";
-                teksti += '<img src="' + data.kuva + '" alt="Kuva" width="300"><br>';
-                teksti += data.opintojakso.nimi + "<br>";
-                teksti += data.opintojakso.tunnus + "<br>";
-                teksti += data.opintojakso.opintopisteet + "<br>";
+                teksti += "<h1>" + data.otsikko + "</h1>" + "<br>";
+                teksti += "<h1>" + data.otsikko + "</h1>" + "<br>";
+                teksti += "<p><b>" + data.kuvaus + "</b><br><br>";
+                teksti += '<img src="' + data.kuva + '" alt="Kuva" width="300"><br><br>';
+                teksti += data.opintojakso.nimi + "<br><br>";
+                teksti += data.opintojakso.tunnus + "<br><br>";
+                teksti += data.opintojakso.opintopisteet + "<br><br>";
 
                 teksti += "<b>Sisältö:</b><br>";
                 teksti += data.sisalto.join("<br>") + "<br>";
@@ -40,7 +41,7 @@
 
                 document.getElementById("vastaus").innerHTML = teksti;
             }
-
+            
             /* Haetaan JSON-tieto */
             fetch('https://nooralankinen.github.io/tietoja.JSON')      
                 .then(function(response) {
