@@ -19,8 +19,8 @@ function kamerat(data) {
 
 /* Jos tuli jokin virhe*/
 
-    .catch(function (error) { document.getElementById("kamerat").innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
-
+    .catch(function (error) { 
+        document.getElementById("kamerat").innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
     })
 
 /*Näytetään yhden kameran kuva*/
