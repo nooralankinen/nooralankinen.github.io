@@ -13,6 +13,8 @@ fetch(`https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data`)
 
 /*Näytetään yhden kameran kuva */
 function kuvat(data) {
+    console.log(data.presets); // Tarkista, että kuvat on ladattu
+    document.getElementById("kuvat");
     // Varmistetaan, että data.presets ei ole tyhjä
     if (data && data.presets && data.presets.length > 0) {
         for (var i = 0; i < data.presets.length; i++) {
