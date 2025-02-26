@@ -19,7 +19,7 @@ function kamerat(data) {
 
 /* Jos tuli jokin virhe*/
 
-    .catch(function (error) { document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
+    .catch(function (error) { document.getElementById("kuvat").innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
 
     })
 
