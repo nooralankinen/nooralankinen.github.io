@@ -30,3 +30,4 @@ function fetchSaa(kaupunki) {
             document.getElementById(kaupunki.toLowerCase()).innerHTML = "<p>Tietoa ei pystytä hakemaan </p>";
 
         });
+}
