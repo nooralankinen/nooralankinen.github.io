@@ -1,5 +1,5 @@
 /*API*/
-fetch(`https://cors-anywhere.herokuapp.com/https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data`)
+fetch(`https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data`)
 
 /*Muunnetaan vastaus JSON muotoon*/
 .then(function(response) {
