@@ -60,3 +60,7 @@ ul li a:hover {
     width: 200px;
     background-color: lightblue;
 }
+#kuvat img {
+    max-width: 100%;
+    height: auto;
+}
