@@ -1,10 +1,7 @@
-/*funktio*/
 
-function kamerat(data) {
-}
 
 /*API*/
-    fetch(`https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data`)
+    fetch(`"https://cors-anywhere.herokuapp.com/https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507/data"`)
 
 /*Muunnetaan vastaus JSON muotoon*/
 
