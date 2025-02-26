@@ -9,7 +9,7 @@
         teksti = teksti + `<p><a href="${data[i].url}">${data[i].url}</a></p>`;
         }
     
-    document.getElementById("d44").innerHTML = teksti;
+    document.getElementById("vastaus").innerHTML = teksti;
     
     }
 /* määritetään sivu, josta tapahtumat haetaan */
