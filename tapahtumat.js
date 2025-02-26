@@ -1,4 +1,4 @@
-// Funktio
+/* funktio */
 
     function tapahtumat(data) {
         var teksti = "";
@@ -12,22 +12,22 @@
     document.getElementById("d44").innerHTML = teksti;
     
     }
-// määritetään sivu, josta tapahtumat haetaan
+/* määritetään sivu, josta tapahtumat haetaan */
 
     fetch('https://api.visittampere.com/api/v1/visittampere/event/published/all/?format=json&lang=fi')
 
-// Muunnetaan vastaus JSON muotoon
+/*Muunnetaan vastaus JSON muotoon*/
 
     .then(function (response) { return response.json();})
 
-// Käsitellään muunnettu (eli JSON muotoinen) vastaus
+/* Käsitellään muunnettu (eli JSON muotoinen) vastaus */
 
     .then(function (data) {
         tapahtumat(data);
 
     })
 
-// Jos tuli jokin virhe
+/* Jos tuli jokin virhe*/
 
     .catch(function (error) { document.getElementById("vastaus").innerHTML = "<p>Tietoa ei pystytä hakemaan </p>"+ error;
 
