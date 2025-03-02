@@ -1,35 +1,39 @@
 /*API*/
-fetch(`https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507`)
+fetch("https://tie.digitraffic.fi/api/weathercam/v1/stations/C04507")
+  .then(response => response.json())  // Muunnetaan vastaus JSON-muotoon
+  .then(data => {
+      console.log(data);  // Debuggausta varten, tarkistetaan että data tulee oikein
+      kuvat(data.properties.presets); // Lähetetään presets-taulukko funktiolle
+  })
+  .catch(error => { 
+      console.error("Virhe haettaessa dataa:", error);
+      document.getElementById("kamerat").innerHTML = "<p>Tietoa ei pystytä hakemaan</p>";
+  });
 
-/*Muunnetaan vastaus JSON muotoon*/
-.then(function(response) {
-    return response.json();
-})
+/*Näytetään liikennekamerakuvat*/
+function kuvat(presets) {
+    const kuvatElementti = document.getElementById("kuvat");
+    kuvatElementti.innerHTML = "";  // Tyhjennetään aiempi sisältö ennen lisäystä
 
-/* Käsitellään muunnettu (eli JSON muotoinen) vastaus */
-.then(function(data) {
-    kuvat(data);
-})
+    if (!presets || presets.length === 0) {
+        kuvatElementti.innerHTML = "<p>Ei saatavilla olevia kuvia.</p>";
+        return;
+    }
 
-/*Näytetään yhden kameran kuva */
-function kuvat(data) {
-    // Varmistetaan, että data.presets ei ole tyhjä
-    if (data && data.presets && data.presets.length > 0) {
-        for (var i = 0; i < data.presets.length; i++) {
-            const camera = data.presets[i];
+    /* Käydään läpi kaikki kameran kuvakulmat */
+    for (let i = 0; i < presets.length; i++) {
+        const camera = presets[i];
+        console.log(`Kuva-URL: ${camera.imageUrl}`); // Debuggausta varten
 
-            console.log(`Kuva-URL: https://tie.digitraffic.fi/api/weathercam/v1/stations/${data.id}/data/${camera.id}/image`);
+        /* Luodaan HTML-elementit */
+        const kuvaElementti = document.createElement("div");
+        kuvaElementti.innerHTML = `
+            <h3>${camera.presentationName}</h3>
+            <p>Aika: ${new Date().toLocaleString()}</p>
+            <img src="${camera.imageUrl}" alt="Liikennekamera ${camera.id}" width="400">
+            <hr>`;
 
-            
-            const kuvaElementti = document.createElement("div");
-            kuvaElementti.innerHTML = `
-                <h3>Kamera ID: ${camera.id}</h3>
-                <p>Aika: ${camera.measuredTime}</p>
-                <img src="https://tie.digitraffic.fi/api/weathercam/v1/stations/${data.id}/data/${camera.id}/image" alt="Liikennekamera ${camera.id}" width="400"><hr>`;
-            document.getElementById("kuvat").appendChild(kuvaElementti);
-        }
-    } else {
-        // Jos data.presets on tyhjä tai ei ole olemassa, näytetään virheilmoitus
-        document.getElementById("kuvat").innerHTML = "<p>Ei kuvia saatavilla.</p>";
+        /* Lisätään kuva-alkiot HTML:ään */
+        kuvatElementti.appendChild(kuvaElementti);
     }
 }
