@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Metsäläntie 10</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column h-100 bg-light">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+            <div class="container px-5">
+                <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">As Oy Metsänhelmi</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Etusivu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="resume.html">Asuinalue</a></li>
+                        <li class="nav-item"><a class="nav-link" href="projects.html">Hankkeet</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">Yhteydenotto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+                    <section>
+                        <div class="container px-5 my-5">
+                            <div class="row gx-5 justify-content-center">
+                                <div class="col-lg-11 col-xl-9 col-xxl-8">  
+                                    <div class="text-center mb-5">
+                            <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Postipuisto</span></h1>
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+
+                    </section>        
+        
+                    <section>
+                        <div class="container px-5 my-5">
+                            <div class="row gx-5">
+                                <!-- Uutissyöte vasemmalle -->
+                                <div class="col-md-4">
+                                    <h2>Uutisia</h2>
+                                    <div id="news-container" class="row"></div>
+                                </div>
+                    
+                                <!-- Yleistä alueesta oikealle -->
+                                <div class="col-md-8">
+                                    <h2 class="text-secondary fw-bolder mb-4">Yleistä alueesta</h2>
+                                    <div class="card shadow border-0 rounded-4 mb-5">
+                                        <div class="card-body p-5">
+                                            <div class="align-items-center gx-5">
+                                                <div class="col text-center text-lg-start mb-4 mb-lg-0">
+                                                        <div class="bg-light p-4 m-3 rounded-4">
+                                                            <div class="text-primary fw-bolder mb-2">2019 - Nyt</div>
+                                                            <div class="small fw-bolder">Postipuisto</div>
+                                                            <div class="small text-muted">Pasila</div>
+                                                            <div class="small text-muted">Helsinki</div>
+                                                        </div>
+                                                </div>
+                                                <div class="col-lg-10"><div>Asuntorakentaminen alkoi 2019 entisen maaliikennekeskuksen alueelta Postipuistosta, jonne syntyy yli 5 000 asukkaan alue. Asunnot tulevat sijoittumaan alueen keskiosaan ja Keskuspuiston reunaan. Alueelle rakennetaan pääosin umpikortteleita, Keskuspuiston laidalle myös pistemäisiä taloja. Alueelle on tulossa päiväkoti. Ilmalan aseman välittömään läheisyyteen tulee toimitilaa. Asemakaava mahdollistaa myös hotellin rakentamisen aseman yhteyteen.</div>
+                                                <a class="btn btn-primary px-4 py-3 m-3" href="https://fi.wikipedia.org/wiki/Pohjois-Pasila">Lue lisää alueesta</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">   
+                                <h2 class="text-secondary fw-bolder mb-4">Alueen asukasrakenne</h2>
+                                <!-- Kortti-->
+                                    <div class="card shadow border-0 rounded-4 mb-5">
+                                        <div class="card-body p-5">
+                                        <!-- Taulukko -->
+                                        <script src="resume.js" defer></script>
+                                        <table id="data-table" class="table">
+                                            <tbody></tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <script>
+                        async function fetchRSS() {
+                            const url = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.hel.fi%2Ffi%2Fuutiset%2Frss%3Ftopic%255B0%255D%3D335%26neighbourhoods%255B0%255D%3D431";
+                            try {
+                                const response = await fetch(url);
+                                const data = await response.json();
+                    
+                                let newsHTML = "";
+                                data.items.forEach(item => {
+                                    newsHTML += `
+                                        <div class="col-md-12"> <!-- 12 leveys, yksi uutinen rivissä -->
+                                            <div class="card mb-3">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">${item.title}</h5>
+                                                    <p class="card-text">${item.pubDate}</p>
+                                                    <a href="${item.link}" class="btn btn-primary" target="_blank">Lue lisää</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    `;
+                                });
+                    
+                                document.getElementById("news-container").innerHTML = newsHTML;
+                    
+                            } catch (error) {
+                                console.error("RSS-syötteen haku epäonnistui:", error);
+                            }
+                        }
+                    
+                        fetchRSS();
+                    </script>
+                        <!-- Divider-->
+                        <div class="pb-5"></div>
+                        
+</body>
+</html>
